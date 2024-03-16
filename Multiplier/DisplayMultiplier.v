@@ -1,8 +1,6 @@
 module DisplayMultiplier(
-	input [3:0] a,
-	input [3:0] b,
-	output [6:0] dout0,
-	output [6:0] dout1
+	input  [3:0] a, b,
+	output [6:0] dout0, dout1
 );
 	wire [3:0] prod0, prod1;
 	Multiplier m(
@@ -10,6 +8,6 @@ module DisplayMultiplier(
 		.b( b ),
 		.prod({ prod1, prod0 })
 	);
-	SevenSegment ss0(.din(prod0), .dout(dout0));
-	SevenSegment ss1(.din(prod1), .dout(dout1));
+	SevenSegment ss0( .din(prod0), .dout(dout0) );
+	SevenSegment ss1( .din(prod1), .dout(dout1) );
 endmodule
